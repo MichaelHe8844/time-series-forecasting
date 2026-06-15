@@ -1,0 +1,27 @@
+% Auto-generated turnover rate LaTeX table
+\begin{table}[ht]
+\centering
+\caption{Turnover rate and holding period comparison across models (full feature set, cross-seed average)}
+\label{tab:turnover}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+Model & Turnover (\%) & Annual Turn. & Hold (hours) & Hold (days) \\
+\midrule
+XGBoost & 6.7 & 146 & 60 & 2.5 \\
+LSTM-Transformer & 7.9 & 173 & 51 & 2.1 \\
+TimeMixer & 11.0 & 241 & 36 & 1.5 \\
+LSTM & 12.1 & 264 & 34 & 1.4 \\
+CNN-Transformer & 17.9 & 392 & 23 & 0.9 \\
+Transformer & 22.8 & 499 & 18 & 0.7 \\
+TCN & 26.7 & 585 & 15 & 0.6 \\
+ModernTCN & 26.8 & 587 & 16 & 0.6 \\
+PatchTST & 27.0 & 591 & 15 & 0.6 \\
+DLinear & 46.0 & 1006 & 9 & 0.4 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Turnover = fraction of time steps with position sign change. Annual turnover = turnover $\times$ 2190. Cross-5-seed mean.} \\
+\end{tabular}%
+}
+\end{table}

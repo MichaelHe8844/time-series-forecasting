@@ -1,0 +1,19 @@
+% On-chain synergy DM test (Chinese)
+\begin{table}[ht]
+\centering
+\small
+\caption{链上协同DM检验：CNN-Transformer的MSE对比（full vs price\_funding\_fng）}
+\label{tab:dm_synergy}
+\begin{tabular}{lccc}
+\toprule
+种子 & DM统计量 & $p$值 & 显著性 \\
+\midrule
+0 & $-2.41$ & 0.016 & * \\
+1 & $-2.89$ & 0.004 & ** \\
+2 & $-2.39$ & 0.017 & * \\
+42 & $-2.05$ & 0.040 & * \\
+123 & $-2.54$ & 0.011 & * \\
+\bottomrule
+\multicolumn{4}{p{0.8\textwidth}}{\small $^{**}\,p<0.01$, $^{*}\,p<0.05$; 负DM统计量表示full集MSE显著低于price\_funding\_fng集。全部5个种子均达到统计显著。} \\
+\end{tabular}
+\end{table}

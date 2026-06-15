@@ -1,0 +1,55 @@
+% DM Test (MSE loss) — Upper triangle
+\begin{table}[ht]
+\centering
+\caption{Diebold-Mariano检验结果（MSE损失）——上三角为DM统计量及p值}
+\label{tab:dm_mse}
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccc}
+\toprule
+ & \multicolumn{1}{c}{CNN-Tr.} & \multicolumn{1}{c}{Tr.} & \multicolumn{1}{c}{LSTM-Tr.} & \multicolumn{1}{c}{LSTM} & \multicolumn{1}{c}{PatchTST} & \multicolumn{1}{c}{XGBoost} & \multicolumn{1}{c}{TCN} & \multicolumn{1}{c}{M.TCN} & \multicolumn{1}{c}{DLinear} & \multicolumn{1}{c}{T.Mixer} \\
+\midrule
+CNN-Tr. & -- & +0.50 (.619) & $-$3.81 (.000) ** & $-$3.07 (.002) ** & $-$2.41 (.016) * & $-$3.78 (.000) ** & $-$4.21 (.000) ** & $-$2.21 (.027) * & $-$2.70 (.007) ** & $-$3.37 (.001) ** \\
+Tr. & -- & -- & $-$3.60 (.000) ** & $-$2.87 (.004) ** & $-$2.43 (.015) * & $-$3.62 (.000) ** & $-$3.73 (.000) ** & $-$2.20 (.028) * & $-$2.91 (.004) ** & $-$3.10 (.002) ** \\
+LSTM-Tr. & -- & -- & -- & +3.58 (.000) ** & +2.89 (.004) ** & +0.06 (.956) & +0.42 (.674) & +2.73 (.006) ** & +0.04 (.966) & +2.47 (.014) * \\
+LSTM & -- & -- & -- & -- & +1.11 (.267) & $-$3.08 (.002) ** & $-$2.00 (.045) * & +1.14 (.253) & $-$1.04 (.300) & $-$0.40 (.687) \\
+PatchTST & -- & -- & -- & -- & -- & $-$2.77 (.006) ** & $-$2.46 (.014) * & +0.17 (.862) & $-$1.55 (.120) & $-$1.27 (.205) \\
+XGBoost & -- & -- & -- & -- & -- & -- & +0.41 (.682) & +2.68 (.007) ** & +0.03 (.973) & +2.12 (.034) * \\
+TCN & -- & -- & -- & -- & -- & -- & -- & +2.74 (.006) ** & $-$0.15 (.878) & +1.64 (.100) \\
+M.TCN & -- & -- & -- & -- & -- & -- & -- & -- & $-$1.60 (.109) & $-$1.47 (.142) \\
+DLinear & -- & -- & -- & -- & -- & -- & -- & -- & -- & +0.86 (.392) \\
+T.Mixer & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\multicolumn{11}{p{\textwidth}}{\scriptsize 注：下三角为对称值；括号内为$p$值；** $p<0.01$, * $p<0.05$; 基于跨种子平均预测的MSE损失计算。CNN-Tr.=CNN-Transformer, Tr.=Transformer, LSTM-Tr.=LSTM-Transformer, M.TCN=ModernTCN, T.Mixer=TimeMixer。}
+\end{tabular}%
+}
+\end{table}
+
+% Bootstrap Sharpe Ratio Difference Test
+\begin{table}[ht]
+\centering
+\caption{Bootstrap夏普比率差异检验（Ledoit \& Wolf, 2008）}
+\label{tab:bootstrap_sharpe}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrcl}
+\toprule
+模型A & 模型B & $\Delta$Sharpe & 95\% CI & $p$值 & 显著性 \\
+\midrule
+CNN-Transformer & Transformer & +0.8926 & [-0.5276, +2.3031] & 0.2180 & -- \\
+CNN-Transformer & LSTM-Transformer & +1.4825 & [-0.0041, +2.9958] & 0.0526 & -- \\
+CNN-Transformer & LSTM & +1.2657 & [-0.3558, +2.9551] & 0.1289 & -- \\
+CNN-Transformer & PatchTST & +2.1705 & [+0.7180, +3.6442] & 0.0029 & ** \\
+CNN-Transformer & XGBoost & +1.5091 & [-0.1505, +3.1752] & 0.0761 & -- \\
+CNN-Transformer & TCN & +5.0367 & [+3.1892, +6.9323] & 0.0000 & ** \\
+CNN-Transformer & ModernTCN & +3.2297 & [+1.4927, +4.9520] & 0.0001 & ** \\
+CNN-Transformer & DLinear & +5.5540 & [+3.2544, +7.8952] & 0.0000 & ** \\
+CNN-Transformer & TimeMixer & +1.1349 & [-0.3535, +2.6399] & 0.1418 & -- \\
+\bottomrule
+\multicolumn{6}{p{\textwidth}}{\scriptsize 注：** $p<0.01$, * $p<0.05$; 正$\Delta$Sharpe表示模型A优于模型B; 10,000次Bootstrap; 基于跨种子平均收益计算。}
+\end{tabular}%
+}
+\end{table}
+

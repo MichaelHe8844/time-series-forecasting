@@ -1,0 +1,23 @@
+% Economic loss DM test (Chinese)
+\begin{table}[ht]
+\centering
+\caption{基于策略收益的DM检验（CNN-Transformer为行模型基准，full特征集）}
+\label{tab:dm_econ}
+\small
+\begin{tabular}{lccccc}
+\toprule
+对比模型 & 胜出种子 & DM均值 & DM范围 & 显著种子 & 结论 \\
+\midrule
+vs Transformer & 4/5 & $-2.60$ & [$-4.75$, $+0.98$] & 3/5 & 一致更优 \\
+vs LSTM-Transformer & 3/5 & $+0.14$ & [$-0.53$, $+1.03$] & 0/5 & 边际混合 \\
+vs LSTM & 4/5 & $-1.10$ & [$-3.52$, $+0.36$] & 1/5 & 一致更优 \\
+vs PatchTST & 4/5 & $-1.47$ & [$-4.73$, $+0.26$] & 1/5 & 一致更优 \\
+vs XGBoost & 3/5 & $+0.23$ & [$-0.64$, $+1.50$] & 0/5 & 边际混合 \\
+vs TCN & 5/5 & $-3.18$ & [$-4.10$, $-1.33$] & 4/5 & 一致且显著更优 \\
+vs ModernTCN & 5/5 & $-2.05$ & [$-3.55$, $-0.32$] & 2/5 & 一致更优 \\
+vs DLinear & 5/5 & $-4.70$ & [$-6.68$, $-2.77$] & 5/5 & 一致且显著更优 \\
+vs TimeMixer & 3/5 & $-0.59$ & [$-1.80$, $+0.25$] & 0/5 & 边际混合 \\
+\bottomrule
+\multicolumn{6}{p{\textwidth}}{\small 胜出种子 = CNN-Transformer优于对比模型的种子数（共5种子）；负DM = CNN-Transformer策略收益更高。显著种子 = $p<0.05$的种子数。} \\
+\end{tabular}
+\end{table}

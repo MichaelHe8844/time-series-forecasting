@@ -1,0 +1,26 @@
+% Auto-generated cost sensitivity LaTeX table
+\begin{table}[ht]
+\centering
+\caption{Transaction cost sensitivity analysis --- strategy performance across fee levels (cross-seed average)}
+\label{tab:cost_sensitivity}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Fee & CNN-Transformer & Transformer & LSTM-Transformer & XGBoost & DLinear & TimeMixer \\
+\midrule
+0 bps & 6.82 / 277\% / 14\% & 5.77 / 235\% / 15\% & 5.26 / 215\% / 15\% & 4.90 / 200\% / 17\% & 3.26 / 134\% / 28\% & 4.74 / 194\% / 15\% \\
+5 bps & 6.09 / 248\% / 15\% & 4.70 / 192\% / 17\% & 4.70 / 192\% / 16\% & 4.50 / 184\% / 18\% & 0.93 / 38\% / 40\% & 4.18 / 171\% / 17\% \\
+10 bps & 5.36 / 218\% / 16\% & 3.63 / 149\% / 18\% & 4.13 / 169\% / 16\% & 4.09 / 168\% / 19\% & $-1.38$ / $-57\%$ / 57\% & 3.61 / 148\% / 20\% \\
+15 bps & 4.62 / 189\% / 17\% & 2.56 / 106\% / 19\% & 3.55 / 145\% / 17\% & 3.69 / 151\% / 20\% & $-3.66$ / $-153\%$ / 79\% & 3.05 / 125\% / 24\% \\
+20 bps & 3.88 / 159\% / 18\% & 1.50 / 62\% / 25\% & 2.97 / 122\% / 18\% & 3.28 / 135\% / 21\% & $-5.86$ / $-248\%$ / 91\% & 2.48 / 102\% / 27\% \\
+25 bps & 3.14 / 130\% / 20\% & 0.45 / 19\% / 34\% & 2.40 / 99\% / 18\% & 2.87 / 119\% / 22\% & $-8.00$ / $-344\%$ / 97\% & 1.91 / 79\% / 30\% \\
+30 bps & 2.41 / 100\% / 21\% & $-0.57$ / $-24\%$ / 41\% & 1.83 / 76\% / 23\% & 2.47 / 103\% / 24\% & $-10.04$ / $-439\%$ / 99\% & 1.35 / 56\% / 32\% \\
+40 bps & 0.97 / 41\% / 24\% & $-2.53$ / $-111\%$ / 69\% & 0.70 / 30\% / 32\% & 1.67 / 70\% / 26\% & $-13.82$ / $-630\%$ / 100\% & 0.24 / 10\% / 38\% \\
+50 bps & $-0.41$ / $-18\%$ / 31\% & $-4.36$ / $-197\%$ / 86\% & $-0.39$ / $-17\%$ / 42\% & 0.88 / 38\% / 29\% & $-17.17$ / $-821\%$ / 100\% & $-0.83$ / $-36\%$ / 47\% \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize Format per cell: Sharpe ratio / Annual return / Max drawdown. Baseline at 5 bps. Computed from cross-seed averaged predictions.} \\
+\end{tabular}%
+}
+\end{table}

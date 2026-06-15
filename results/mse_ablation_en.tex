@@ -1,0 +1,27 @@
+% MSE-based feature ablation (English)
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\caption{Test-set MSE comparison across models under six feature configurations (seed=1, $\times 10^{4}$)}
+\label{tab:mse_ablation}
+\begin{tabular}{lccccccc}
+\toprule
+\multirow{2}{*}{Model} & \multicolumn{6}{c}{Feature Configuration (MSE $\times 10^{4}$)} & \multirow{2}{*}{$\Delta$MSE} \\
+\cmidrule(lr){2-7}
+& only & fund & fng & onch & lon & full \\
+\midrule
+CNN-Transformer & 0.77 & 0.77 & 0.77 & 0.77 & 0.77 & \textbf{0.75} & \textbf{$-0.02$} \\
+PatchTST & 0.77 & 0.78 & 0.78 & 0.77 & 0.77 & 0.75 & $-0.03$ \\
+LSTM-Transformer & 0.77 & 0.77 & 0.77 & 0.77 & 0.77 & 0.76 & $-0.01$ \\
+XGBoost & 0.77 & 0.77 & 0.76 & 0.77 & 0.77 & 0.76 & 0.00 \\
+TCN & 0.77 & 0.78 & 0.76 & 0.77 & 0.78 & 0.77 & $+0.01$ \\
+ModernTCN & 0.77 & 0.77 & 0.77 & 0.78 & 0.77 & 0.77 & 0.00 \\
+TimeMixer & 0.77 & 0.77 & \textbf{0.75} & 0.77 & 0.77 & 0.77 & $+0.02$ \\
+LSTM & 0.77 & 0.77 & 0.76 & 0.77 & 0.77 & 0.77 & $+0.01$ \\
+Transformer & 0.78 & 0.79 & 0.78 & 0.80 & 0.79 & 0.77 & $-0.01$ \\
+DLinear & 0.79 & 0.78 & 0.78 & 0.80 & 0.79 & 0.80 & $+0.02$ \\
+\bottomrule
+\multicolumn{8}{p{0.85\textwidth}}{\footnotesize only=price\_only; fund=price\_funding; fng=price\_funding\_fng; onch=price\_onchain; lon=price\_long\_onchain. $\Delta$MSE = MSE$_{\text{full}}$ $-$ MSE$_{\text{fng}}$ (negative = on-chain data reduces prediction error). Bold indicates the best value in each column. TimeMixer achieves the lowest MSE (0.75) on the fng set, but its MSE increases to 0.77 after adding on-chain data ($\Delta$+0.02, tied worst with DLinear).}
+\end{tabular}
+\end{table*}

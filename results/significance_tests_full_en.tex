@@ -1,0 +1,52 @@
+% DM Test (MSE loss) — Upper triangle (all 10 models)
+\begin{table*}[t]
+\centering
+\caption{Diebold--Mariano test results (MSE loss)---upper triangle contains DM statistic and $p$-value}
+\label{tab:dm_mse}
+\footnotesize
+\setlength{\tabcolsep}{1pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccc}
+\toprule
+ & \multicolumn{1}{c}{CNN-Tr.} & \multicolumn{1}{c}{Tr.} & \multicolumn{1}{c}{LSTM-Tr.} & \multicolumn{1}{c}{LSTM} & \multicolumn{1}{c}{PatchTST} & \multicolumn{1}{c}{XGBoost} & \multicolumn{1}{c}{TCN} & \multicolumn{1}{c}{M.TCN} & \multicolumn{1}{c}{DLinear} & \multicolumn{1}{c}{T.Mixer} \\
+\midrule
+CNN-Tr. & -- & $+0.50$ (.619) & $-3.81$ (.000) ** & $-3.07$ (.002) ** & $-2.41$ (.016) * & $-3.78$ (.000) ** & $-4.21$ (.000) ** & $-2.21$ (.027) * & $-2.70$ (.007) ** & $-3.37$ (.001) ** \\
+Tr. & -- & -- & $-3.60$ (.000) ** & $-2.87$ (.004) ** & $-2.43$ (.015) * & $-3.62$ (.000) ** & $-3.73$ (.000) ** & $-2.20$ (.028) * & $-2.91$ (.004) ** & $-3.10$ (.002) ** \\
+LSTM-Tr. & -- & -- & -- & $+3.58$ (.000) ** & $+2.89$ (.004) ** & $+0.06$ (.956) & $+0.42$ (.674) & $+2.73$ (.006) ** & $+0.04$ (.966) & $+2.47$ (.014) * \\
+LSTM & -- & -- & -- & -- & $+1.11$ (.267) & $-3.08$ (.002) ** & $-2.00$ (.045) * & $+1.14$ (.253) & $-1.04$ (.300) & $-0.40$ (.687) \\
+PatchTST & -- & -- & -- & -- & -- & $-2.77$ (.006) ** & $-2.46$ (.014) * & $+0.17$ (.862) & $-1.55$ (.120) & $-1.27$ (.205) \\
+XGBoost & -- & -- & -- & -- & -- & -- & $+0.41$ (.682) & $+2.68$ (.007) ** & $+0.03$ (.973) & $+2.12$ (.034) * \\
+TCN & -- & -- & -- & -- & -- & -- & -- & $+2.74$ (.006) ** & $-0.15$ (.878) & $+1.64$ (.100) \\
+M.TCN & -- & -- & -- & -- & -- & -- & -- & -- & $-1.60$ (.109) & $-1.47$ (.142) \\
+DLinear & -- & -- & -- & -- & -- & -- & -- & -- & -- & $+0.86$ (.392) \\
+T.Mixer & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\multicolumn{11}{p{\textwidth}}{\footnotesize Note: Lower triangle is symmetric; $p$-values in parentheses; ** $p<0.01$, * $p<0.05$; computed based on cross-seed averaged predictions. A negative DM statistic indicates the row model has lower MSE than the column model ($d=\text{MSE}_{\text{row}}-\text{MSE}_{\text{col}}$). CNN-Tr.=CNN-Transformer, Tr.=Transformer, LSTM-Tr.=LSTM-Transformer, M.TCN=ModernTCN, T.Mixer=TimeMixer.} \\
+\end{tabular}%
+}
+\end{table*}
+
+% Bootstrap Sharpe Ratio Difference Test (CNN-Transformer as baseline, all 9 comparisons)
+\begin{table*}[t]
+\centering
+\caption{Bootstrap Sharpe ratio difference test (CNN-Transformer as baseline, Ledoit \& Wolf, 2008)}
+\label{tab:bootstrap_sharpe}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrcrl}
+\toprule
+Model A & Model B & $\Delta$Sharpe & 95\% CI & $p$-value & Significance \\
+\midrule
+CNN-Transformer & Transformer & $+0.8926$ & [$-0.5276$, $+2.3031$] & 0.2180 & -- \\
+CNN-Transformer & LSTM-Transformer & $+1.4825$ & [$-0.0041$, $+2.9958$] & 0.0526 & -- \\
+CNN-Transformer & LSTM & $+1.2657$ & [$-0.3558$, $+2.9551$] & 0.1289 & -- \\
+CNN-Transformer & PatchTST & $+2.1705$ & [$+0.7180$, $+3.6442$] & 0.0029 & ** \\
+CNN-Transformer & XGBoost & $+1.5091$ & [$-0.1505$, $+3.1752$] & 0.0761 & -- \\
+CNN-Transformer & TCN & $+5.0367$ & [$+3.1892$, $+6.9323$] & 0.0000 & ** \\
+CNN-Transformer & ModernTCN & $+3.2297$ & [$+1.4927$, $+4.9520$] & 0.0001 & ** \\
+CNN-Transformer & DLinear & $+5.5540$ & [$+3.2544$, $+7.8952$] & 0.0000 & ** \\
+CNN-Transformer & TimeMixer & $+1.1349$ & [$-0.3535$, $+2.6399$] & 0.1418 & -- \\
+\bottomrule
+\multicolumn{6}{p{0.85\textwidth}}{\footnotesize Note: ** $p<0.01$, * $p<0.05$; positive $\Delta$Sharpe indicates model A (CNN-Transformer) outperforms model B; 10,000 Bootstrap resamples; cross-seed averaged returns.} \\
+\end{tabular}
+\end{table*}

@@ -1,0 +1,41 @@
+# API keys & secrets
+configs/key
+*.key
+
+# Data files (large, re-downloadable)
+data/raw/
+data/processed/
+
+# Generated features (large .npy, regeneratable)
+features/
+
+# Model checkpoints (large .pth files)
+checkpoint/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.blg
+*.bbl
+*.abs
+*.fdb_latexmk
+*.fls
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
