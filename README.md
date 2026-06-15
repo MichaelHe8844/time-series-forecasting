@@ -1,6 +1,6 @@
 # Multi-Source Heterogeneous Data Fusion for Cryptocurrency Return Forecasting
 
-[![DOI](https://zenodo.org/badge/DOI/000000000000000000.svg)](https://doi.org/000000000000000000) *(DOI pending publication)*
+[![DOI](https://zenodo.org/badge/1269770764.svg)](https://doi.org/10.5281/zenodo.20696269)
 
 Source code for the paper: **"Multi-Source Heterogeneous Data Fusion for Cryptocurrency Return Forecasting: On the Conditional Effectiveness of On-Chain Indicators"**
 
