@@ -39,4 +39,6 @@ Thumbs.db
 
 # Logs
 *.log
-paper/ paper_english/
+# Manuscript files (private)
+paper/
+paper_english/

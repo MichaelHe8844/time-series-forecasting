@@ -1,0 +1,24 @@
+% 缺口 3: 损失函数消融
+\begin{table}[H]
+\centering
+\caption{损失函数消融：不同损失函数下CNN-Transformer与TimeMixer的测试集表现（full特征集，跨3种子均值$\pm$标准差）}
+\label{tab:loss_ablation}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccc}
+\toprule
+模型 & 损失函数 & Sharpe & IC & 说明 \\
+\midrule
+\multirow{3}{*}{CNN-Transformer}
+   & 纯Huber & $5.02\pm0.38$ & $0.159\pm0.003$ & 无排序损失 \\
+   & 纯MSE   & $5.37\pm0.56$ & $0.155\pm0.004$ & 无排序损失 \\
+   & Huber+Rank（当前）& $\bf 5.49\pm0.21$ & $0.150\pm0.020$ & $\lambda_{\text{rank}}=0.13$ \\
+\midrule
+\multirow{3}{*}{TimeMixer}
+   & 纯Huber & $\bf 4.20\pm0.51$ & $0.117\pm0.004$ & 无排序损失 \\
+   & 纯MSE   & $\bf 4.68\pm0.66$ & $0.123\pm0.016$ & 无排序损失 \\
+   & Huber+Rank（当前）& $2.95\pm0.98$ & $0.101\pm0.016$ & $\lambda_{\text{rank}}=0.13$ \\
+\bottomrule
+\multicolumn{5}{p{\textwidth}}{\footnotesize 注：跨3种子（0,1,2）。CNN-Transformer从排序损失中获益（$+0.47$），而TimeMixer受到严重伤害（$-1.25\sim-1.73$），表明PDM多尺度分解机制与排序损失的随机配对扰动存在冲突。推荐在混合架构中保留排序损失，在多尺度混合架构中移除。}\\
+\end{tabular}
+\end{table}

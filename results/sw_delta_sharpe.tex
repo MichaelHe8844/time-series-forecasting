@@ -1,0 +1,19 @@
+% 缺口 2: 滑动窗口 ΔSharpe 验证
+\begin{table}[H]
+\centering
+\caption{滑动窗口验证：链上数据协同效应的跨市场体制稳定性（full vs price\_funding\_fng）}
+\label{tab:sw_delta_sharpe}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccccccccc}
+\toprule
+\multirow{2}{*}{模型} & \multicolumn{8}{c}{窗口 $\Delta$Sharpe (full $-$ fng)} & \multirow{2}{*}{均值} & \multirow{2}{*}{正窗口} \\
+\cmidrule(lr){2-9}
+& W0 & W1 & W2 & W3 & W4 & W5 & W6 & W7 \\
+\midrule
+CNN-Transformer & $-1.10$ & $-0.71$ & $+1.65$ & $+1.83$ & $+1.34$ & $+1.15$ & $+2.94$ & $+1.66$ & $+1.10$ & 6/8 \\
+TimeMixer & $+2.97$ & $-1.22$ & $-0.33$ & $-0.55$ & $+0.81$ & $-0.83$ & $-3.46$ & $-2.53$ & $-0.64$ & 2/8 \\
+\bottomrule
+\multicolumn{11}{p{\textwidth}}{\footnotesize 注：W0--W7依次覆盖2022 H1至2025 H2；正值表示full集（含链上数据）的Sharpe高于fng集。CNN-Transformer的$\Delta$Sharpe在多数窗口中为正，表明链上数据的协同增益在时序维度上成立但效应量（$+1.10$）比静态评估（$+3.30$）更保守。TimeMixer仅有2/8窗口为正，链上数据在大多数市场体制下对其造成负向干扰。}\\
+\end{tabular}
+\end{table}

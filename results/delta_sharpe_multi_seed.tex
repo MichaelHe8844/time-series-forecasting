@@ -1,0 +1,23 @@
+\begin{table}[ht]
+\centering
+\caption{链上数据协同效应跨种子统计：$\Delta$Sharpe (fng$\to$full) 的均值、标准差与符号一致性}
+\label{tab:delta_multi_seed}
+\small
+\begin{tabular}{lcccc}
+\toprule
+模型 & Sharpe$_{\text{fng}}$ & Sharpe$_{\text{full}}$ & $\Delta$Sharpe & 协同类型 \\
+\midrule
+CNN-Transformer & 1.89 & 5.19 & +3.30±0.69 & 强正向协同 \\
+LSTM-Transformer & 2.10 & 3.02 & +0.92±1.07 & 弱正向协同 \\
+DLinear & 0.42 & 0.37 & -0.05±1.09 & 中性 \\
+Transformer & 3.74 & 3.53 & -0.21±0.76 & 中性 \\
+XGBoost & 4.50 & 4.23 & -0.27±0.75 & 中性 \\
+PatchTST & 3.62 & 2.81 & -0.81±1.14 & 弱负向干扰 \\
+LSTM & 3.85 & 3.00 & -0.85±1.64 & 弱负向干扰 \\
+TimeMixer & 4.49 & 3.48 & -1.01±1.28 & 弱负向干扰 \\
+TCN & 1.83 & 0.62 & -1.21±1.95 & 弱负向干扰 \\
+ModernTCN & 3.17 & 1.89 & -1.28±1.12 & 弱负向干扰 \\
+\bottomrule
+\multicolumn{5}{p{0.85\textwidth}}{\footnotesize 注：跨5种子（0,1,2,42,123）均值$\pm$标准差。$\Delta$Sharpe = Sharpe$_{\text{full}}$ $-$ Sharpe$_{\text{fng}}$。协同分类阈值：$>+2$强正向, $(0, +2]$弱正向, $\approx 0$中性, $[-1.5,0)$弱负向, $<-1.5$负向干扰。}
+\end{tabular}
+\end{table}

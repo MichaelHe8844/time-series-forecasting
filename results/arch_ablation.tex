@@ -1,0 +1,19 @@
+% 缺口 4: 架构组件消融
+\begin{table}[H]
+\centering
+\caption{CNN-Transformer架构组件消融：各组件的独立与联合贡献（full特征集，跨2种子）}
+\label{tab:arch_ablation}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+架构变体 & 参数量 & Sharpe & IC \\
+\midrule
+CNN-Transformer（完整）& 1.75M & $\bf 5.46$ & $\bf 0.152$ \\
+CNN-only（去Transformer）& 1.02M & $0.04$ & $0.014$ \\
+Transformer-only（去CNN）& 0.72M & $4.30$ & $0.143$ \\
+Transformer-only（参数量匹配，1.81M）& 1.81M & $5.08$ & $0.142$ \\
+\bottomrule
+\multicolumn{4}{p{\textwidth}}{\footnotesize 注：跨2种子（0,1）均值。CNN-only完全丧失预测能力（Sharpe$\approx$0），表明纯卷积的局部感受野不足以捕获跨源交互。Transformer-only即使参数量匹配（1.81M vs.\ 1.75M），Sharpe仍低于完整混合架构（$5.08$ vs.\ $5.46$），证实"混合"（CNN局部提取$\to$Transformer全局交互）本身是增益的本质来源，参数量差异非混淆因素。}\\
+\end{tabular}
+\end{table}
